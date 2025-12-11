@@ -45,7 +45,6 @@ export const StepCryoEM = ({ protein, onStepComplete }: StepProps) => {
         transition={{ delay: 0.2 }}
         className="mb-8 text-center space-y-2"
       >
-        <div className="text-sm font-mono text-primary">STEP 1 OF 10</div>
         <h3 className="text-2xl font-bold">Cryo-EM Workflow</h3>
         <p className="text-muted-foreground">
           High-resolution electron microscopy pipeline for {protein}

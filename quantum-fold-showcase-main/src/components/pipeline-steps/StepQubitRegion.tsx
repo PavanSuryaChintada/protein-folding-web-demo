@@ -98,7 +98,6 @@ export const StepQubitRegion = ({ protein, onStepComplete }: StepProps) => {
         transition={{ delay: 0.5 }}
         className="mt-8 text-center space-y-2"
       >
-        <div className="text-sm font-mono text-primary">STEP 3 OF 10</div>
         <h3 className="text-2xl font-bold">
           {phase === 'whole' && "Analyzing protein structure..."}
           {phase === 'shattering' && "Fragmenting into quantum regions..."}

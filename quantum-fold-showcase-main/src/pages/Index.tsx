@@ -4,7 +4,6 @@ import { ApproachCards } from "@/components/ApproachCards";
 import { SimulatorSection } from "@/components/SimulatorSection";
 import { CompetitiveEdgeModal } from "@/components/CompetitiveEdgeModal";
 import { WhyGlycineSection } from "@/components/WhyGlycineSection";
-import { TeamSection } from "@/components/TeamSection";
 import { Footer } from "@/components/Footer";
 
 const Index = () => {
@@ -21,8 +20,6 @@ const Index = () => {
       </section>
 
       <WhyGlycineSection />
-
-      <TeamSection />
 
       <Footer />
     </main>

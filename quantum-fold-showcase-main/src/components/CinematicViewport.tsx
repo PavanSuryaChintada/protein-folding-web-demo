@@ -2,9 +2,14 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { StepCryoEM } from "./pipeline-steps/StepCryoEM";
 import { StepMLConformation } from "./pipeline-steps/StepMLConformation";
+import { StepYOPODISCA } from "./pipeline-steps/StepYOPODISCA";
 import { StepQubitRegion } from "./pipeline-steps/StepQubitRegion";
+import { StepQuantumFragments } from "./pipeline-steps/StepQuantumFragments";
+import { StepFragmentationFormulation } from "./pipeline-steps/StepFragmentationFormulation";
+import { StepReassemblySetup } from "./pipeline-steps/StepReassemblySetup";
 import { StepHamiltonian } from "./pipeline-steps/StepHamiltonian";
 import { StepVQE } from "./pipeline-steps/StepVQE";
+import { StepQuantumSimulation } from "./pipeline-steps/StepQuantumSimulation";
 import { StepZNE } from "./pipeline-steps/StepZNE";
 import { StepResults } from "./pipeline-steps/StepResults";
 import { StepValidation } from "./pipeline-steps/StepValidation";
@@ -20,14 +25,17 @@ interface CinematicViewportProps {
 
 export const CinematicViewport = ({ protein, onComplete }: CinematicViewportProps) => {
   const [currentStep, setCurrentStep] = useState(0);
-  const [isStepComplete, setIsStepComplete] = useState(false);
 
   const steps = [
     { component: StepCryoEM },
+    { component: StepYOPODISCA },
     { component: StepMLConformation },
     { component: StepQubitRegion },
+    { component: StepFragmentationFormulation },
+    { component: StepReassemblySetup },
     { component: StepHamiltonian },
     { component: StepVQE },
+    { component: StepQuantumSimulation },
     { component: StepZNE },
     { component: StepResults },
     { component: StepValidation },
@@ -35,21 +43,15 @@ export const CinematicViewport = ({ protein, onComplete }: CinematicViewportProp
     { component: StepInteractive },
   ];
 
-  const handleStepComplete = () => {
-    setIsStepComplete(true);
-  };
-
   const handleNextStep = () => {
     if (currentStep < steps.length - 1) {
       setCurrentStep(currentStep + 1);
-      setIsStepComplete(false);
     }
   };
 
   const handlePreviousStep = () => {
     if (currentStep > 0) {
       setCurrentStep(currentStep - 1);
-      setIsStepComplete(true); // Previous steps are already complete
     }
   };
 
@@ -100,7 +102,7 @@ export const CinematicViewport = ({ protein, onComplete }: CinematicViewportProp
               transition={{ duration: 0.5 }}
               className="w-full h-full"
             >
-              <CurrentStepComponent protein={protein} onStepComplete={handleStepComplete} />
+              <CurrentStepComponent protein={protein} />
             </motion.div>
           )}
         </AnimatePresence>
@@ -127,10 +129,7 @@ export const CinematicViewport = ({ protein, onComplete }: CinematicViewportProp
             variant="quantum"
             size="lg"
             onClick={handleNextStep}
-            disabled={!isStepComplete}
-            className={`transition-all duration-300 ${
-              isStepComplete ? 'animate-pulse-glow' : 'opacity-50 cursor-not-allowed'
-            }`}
+            className="transition-all duration-300 animate-pulse-glow"
           >
             Next Step →
           </Button>

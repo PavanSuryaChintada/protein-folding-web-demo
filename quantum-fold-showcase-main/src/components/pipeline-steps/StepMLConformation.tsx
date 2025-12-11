@@ -156,7 +156,6 @@ export const StepMLConformation = ({ protein, onStepComplete }: StepProps) => {
         transition={{ delay: 0.5 }}
         className="mt-8 text-center space-y-2"
       >
-        <div className="text-sm font-mono text-primary">STEP 2 OF 10</div>
         <h3 className="text-2xl font-bold">Isolating single conformation with AI...</h3>
         <p className="text-muted-foreground">
           ML clustering filters noisy data and identifies optimal conformation from 1,000+ images
