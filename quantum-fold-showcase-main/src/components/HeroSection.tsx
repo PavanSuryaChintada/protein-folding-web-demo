@@ -29,8 +29,7 @@ export const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          See how we unite Cryo-EM, AI, and Quantum Computing to solve biology's greatest puzzle.
-        </motion.p>
+          Demonstrating the first fully integrated pipeline where **DISCA-YOPO** ensures structural purity, **Fragmentation** enables **8-qubit** feasibility, and the **VQE-QSE** engine, validated by **PEM**, delivers unprecedented molecular energy fidelity.        </motion.p>
 
         <motion.div
           initial={{ opacity: 0, y: 30 }}
